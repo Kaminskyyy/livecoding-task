@@ -8,7 +8,7 @@ services:
       - POSTGRES_PASSWORD=admin
       - POSTGRES_USER=admin
       - POSTGRES_DB=products-db
-    container_name: database
+    container_name: products-db
     volumes:
       - products-pg-data:/var/lib/postgresql/data
 
