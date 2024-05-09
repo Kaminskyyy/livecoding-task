@@ -1,19 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import { DbService } from 'src/db/db.service';
 
 @Injectable()
 export class ProductService {
-  constructor(private readonly dbService: DbService) {}
+  constructor() {}
 
-  create(product: any) {
-    this.dbService.create(product);
-  }
+  create(product: any) {}
 
-  findOne(id: number) {
-    return this.dbService.findOne(id);
-  }
+  findOne(id: number) {}
 
-  findAll() {
-    return this.dbService.findAll();
-  }
+  findAll() {}
 }
