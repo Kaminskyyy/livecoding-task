@@ -1,0 +1,26 @@
+version: '3.5'
+
+services:
+  products-database:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_USER=admin
+      - POSTGRES_DB=products-db
+    container_name: database
+    volumes:
+      - products-pg-data:/var/lib/postgresql/data
+
+  products-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: products-app
+    ports:
+      - '3000:3000'
+    depends_on:
+      - products-database
+
+volumes:
+  products-pg-data:
